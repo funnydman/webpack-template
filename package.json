@@ -1,0 +1,12 @@
+{
+  "name": "webpack-template",
+  "version": "0.0.1",
+  "description": "Small and powerfull webpack template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FUNNYDMAN",
+  "license": "ISC"
+
+}
