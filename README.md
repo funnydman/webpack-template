@@ -1,3 +1,4 @@
+# webpack-template
 # Webpack web template
 
 ### Development

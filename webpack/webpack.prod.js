@@ -8,8 +8,10 @@ module.exports = merge(common, {
     devtool: 'source-map',
     optimization: {
         minimize: true,
-        minimizer: [new UglifyJsPlugin({
-            include: /\.min\.js$/
-        })]
+        minimizer: [
+            new UglifyJsPlugin({
+                include: /\.min\.js$/
+            })
+        ]
     },
 });

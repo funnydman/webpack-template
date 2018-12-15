@@ -1,29 +1,32 @@
 {
-  "name": "webpack-template",
+  "name": "web",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
+  "main": "app/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --config webpack/webpack.dev.js",
+    "build": "webpack --config webpack/webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "funnydman",
+  "license": "GPL",
+  "devDependencies": {
     "clean-webpack-plugin": "^1.0.0",
-    "css-loader": "^1.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.10.0",
+    "css-loader": "^2.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^4.0.0-beta.5",
+    "image-webpack-loader": "^4.6.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.26.1",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
-  },
-  "devDependencies": {
     "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.1.4"
-  },
-  "scripts": {
-    "build": "webpack --config webpack/webpack.prod.js",
-    "start": "webpack-dev-server --open --config webpack/webpack.dev.js"
-  },
-  "keywords": [],
-  "author": "FUNNYDMAN",
-  "license": "ISC"
+    "webpack-merge": "^4.1.5"
+  }
 }
