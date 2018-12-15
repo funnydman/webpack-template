@@ -1,47 +1,45 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
-    entry: './index.js',
-    output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: 'main.bundle.js'
-    },
+    entry: "./index.js",
     module: {
         rules: [
             {
-                test: /\.html$/,
-                use: ["html-loader"]
+                test: /\.html$/, use: ['html-loader?interpolate']
             },
             {
                 test: /\.(sass|css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                })
-            },
-            {
-                test: /\.(png|svg|jpg|gif|jpeg)$/,
                 use: [
-                    {
-                        loader: 'file-loader',
-                        options: {outputPath: 'img/'}
-                    }
+                    MiniCssExtractPlugin.loader,
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
                 ]
             },
             {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
-            },
-
+                test: /\.(png|svg|jpg|gif|jpeg)$/, use: [{
+                    loader: "file-loader",
+                    options: {
+                        outputPath: 'img/'
+                    }
+                }]
+            }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new ExtractTextPlugin({filename: 'main.bundle.css'}),
-
+        new HtmlWebpackPlugin({
+            template: 'app/index.html',
+            filename: 'index.html',
+            favicon: 'app/asserts/img/fav.ico'
+        }),
+        new MiniCssExtractPlugin({
+            filename: "main.bundle.css"
+        })
     ],
+    output: {
+        path: path.resolve(__dirname, '../dist'),
+        filename: '[name].bundle.js'
+    }
 };
