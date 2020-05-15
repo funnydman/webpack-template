@@ -14,8 +14,8 @@ For local development:
 npm run start
 ```
 Webpack do this for you:
-* Automataticaly reload the page when you make any changes
-* Display errors and warnings in console(Can be configured differently. There are many options!)
+* Automatically reload the page when you make any changes
+* Display errors and warnings in console (Can be configured differently. There are many options!)
 * Saves your time of course!
 
 For production:
